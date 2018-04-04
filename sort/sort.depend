@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1522725062 source:e:\mycode\sort\main.cpp
+	<iostream>
+	<fstream>
+
+1522823663 source:e:\我的坚果云\mycode\sort\main.cpp
+	<iostream>
+	<fstream>
+	<climits>
+	<algorithm>
+
+1522769492 source:c:\users\syx\documents\我的坚果云\mycode\sort\main.cpp
+	<iostream>
+	<fstream>
+	<climits>
+

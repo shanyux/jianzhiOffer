@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1522206663 source:e:\mycode\biaodasi\main.cpp
+	<iostream>
+	<stack>
+	<cmath>
+
+1522207247 source:c:\users\syx\documents\我的坚果云\mycode\biaodasi\main.cpp
+	<iostream>
+	<stack>
+	<cmath>
+	<cstdlib>
+
