@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1522849217 source:c:\jianzhioffer\4_jianzhi_str\main.cpp
+	<cstring>
+	<iostream>
+
