@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1523010332 source:c:\jianzhioffer\7_jianzhi_queue\main.cpp
+	<iostream>
+	<cstdio>
+	<stack>
+

@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1522986087 source:c:\jianzhioffer\tengxun3_xiongyali\main.cpp
-	<iostream>
+1523000161 source:c:\jianzhioffer\tengxun3_xiongyali\main.cpp
 	<algorithm>
+	<iostream>
+	<vector>
 

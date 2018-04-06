@@ -77,20 +77,55 @@ int main()
     return 0;
 }
 */
-
+//第二种 匈牙利算法，两排，第一排是任务第二排是机器，一个一个对比，找能满足的最大任务数量及最大效益
 
 #include <iostream>
 #include <vector>
 using namespace std;
-void solution(vector<pair<int,int>>& maczw, vector<pair<int,int>>&proxy, vector<int>& useM，vector<int>& useP,int &sum,int &value,int index)
+int add(vector<int> &useP)
 {
+    int size = 0;
+    for(size_t i = 0; i<useP.size(); i++)
+    {
+        if(useP[i])
+            size++;
+    }
+    return size;
+}
+void solution(vector<pair<int,int>>& maczw, vector<pair<int,int>>&proxy,vector<int>& useM, vector<int>& useP,vector<int> &res,int tmpvalue,int index)
+{
+    if((add(useP) > res[0]) || ((add(useP) == res[0]) && (tmpvalue > res[1])))
+    {
+        res[0] = add(useP);
+        res[1] = tmpvalue;
+    }
+    for(size_t i = index; i<proxy.size(); i++)
+    {
+        if(useP[i] == 1)
+                continue;
+        for(size_t j = 0; j < maczw.size(); j++)
+        {
+            if(useM[j] == 1)
+                continue;
+            else
+            {
+                if(proxy[i].first <= maczw[j].first && proxy[i].first <= maczw[j].first)
+                {
+                    useP[i] = 1;
+                    useM[j] = 1;
+                    solution(maczw,proxy,useM,useP,res,tmpvalue+proxy[i].first*200+proxy[i].second*3,index+1);
+                    useP[i] = 0;
+                    useM[j] = 0;
+
+                }
+            }
+        }
+    }
 
 }
 int main()
 {
     int n, m,a,b;
-    int sum = 0;
-    int value = 0;
     cin >> n >> m;
     pair<int,int> na;
     pair<int,int> ma;
@@ -99,6 +134,7 @@ int main()
     vector<pair<int,int>> proxy;//任务
     vector<int> useM(n,0);
     vector<int> useP(m,0);
+    vector<int> res(2,0);
 
     for(int i = 0; i < n; i++)
     {
@@ -113,8 +149,9 @@ int main()
         ma= make_pair(a,b);
         proxy.push_back(ma);
     }
+    solution(maczw,proxy,useM,useP,res,0,0);
 
 
-    cout << sum << " " << value << endl;
+    cout << res[0] << " " << res[1] << endl;
     return 0;
 }
