@@ -4,19 +4,44 @@
 using namespace std;
 bool increment(char *number);
 void print(char *number);
-void printTOMax(int n)
+void printTOMax1(int n)
 {
     if(n <=0)
         return;
-    else
+
+    char *number = new char[n+1];
+    memset(number,'0',n);
+    number[n] = '\0';
+    while(!increment(number))
     {
-        char *number = new char[n+1];
-        memset(number,'0',n);
-        number[n] = '\0';
-        while(!increment(number))
+        print(number);
+    }
+    delete []number;
+}
+void printTOMax2Recursively(char *number, int length, int index)
+{
+    if(index == length)
+    {
+        print(number);
+    }
+    else
+        for(int i = 0; i< 10; i++)
         {
-            print(number);
+            number[index+1] = i + '0';
+            printTOMax2Recursively(number,length,index+1);
         }
+}
+void printTOMax2(int n)
+{
+    char *number = new char[n+1];
+    //memset(number,'0',)
+    //number[n] = '\0';
+    //cout << number;
+    for(int i = 0; i <10; i++)
+    {
+        number[0] = i+'0';
+        printTOMax2Recursively(number, n-1,0);
+
     }
 }
 bool increment(char *number)
@@ -59,26 +84,28 @@ bool increment(char *number)
 }
 void print(char *number)
 {
-    bool isbegin = true;
+    bool isbegin = false;
 
     size_t n = strlen(number);
     for(size_t i = 0; i < n; i++)
     {
-        if(isbegin && number[i] != '0')
-            isbegin = false;
-        if(!isbegin)
+        if(isbegin || number[i] != '0')
+        {
             cout << number[i];
+            isbegin = true;
+        }
 
     }
     cout << "  ";
 }
 
+
 int main()
 {
-    int n =2;
-    printTOMax(n);
+    int n =3;
+    //printTOMax1(n);
     n =4;
-    printTOMax(n);
+    printTOMax2(n);
     //n =4;
     //printTOMax(n);
 
