@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1523610076 source:e:\githubpushcode\jianzhioffer\binary_tree_traverse\main.cpp
+	<iostream>
+	<Windows.h>
+	<stack>
+
