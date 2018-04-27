@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1524833355 source:c:\jianzhioffer\36_jianzhi_inversepairs\main.cpp
+	<iostream>
+	<cstdio>
+	<vector>
+
