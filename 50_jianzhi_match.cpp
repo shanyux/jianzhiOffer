@@ -4,7 +4,7 @@ public:
     {
         if(*str == '\0' && *pattern == '\0')
             return true;
-        if(*str !='\0' && *pattern == '\0')
+        if(*str !='\0' && *pattern == '\0')//为什么只有一个，没有(*str =='\0' && *pattern != '\0')str到头，pattern可以是.*,也可以代表没有。
             return false;
         if(*(pattern+1) != '*')
         {
